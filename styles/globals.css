@@ -1,26 +1,59 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer components {
+  .list_container {
+    @apply flex justify-center items-center text-[11px];
   }
-  body {
-    color: white;
-    background: black;
+  .arrow_down {
+    @apply text-3xl font-thin;
   }
+  .side_icon {
+    @apply border p-3 text-xl hover:text-white bg-white rounded-sm hover:bg-[#ff9300] cursor-pointer;
+  }
+
+  .cart-list {
+    @apply xl:border-b-2 xl:pb-1 pb-5;
+  }
+
+  .cart-icon {
+    @apply bg-white hover:text-white border rounded-full w-fit p-3  hover:bg-[#ff9300];
+  }
+
+  .service-item {
+    @apply flex space-x-2  border-r-2 pr-1 xl:p-5  w-[35%] xl:w-fit m-3 xl:m-0;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+.slick-next,
+.slick-prev {
+  z-index: 1;
+  background-color: #f7e4ca !important;
+  width: 30px !important;
+  height: 40px !important;
+}
+
+.slick-next:hover,
+.slick-prev:hover {
+  background-color: #ff9300 !important;
+}
+
+.carousel .control-next.control-arrow,
+.carousel .control-prev.control-arrow {
+  border-left: 8px solid #fff;
+  background-color: gray !important;
+  height: 90px !important;
+  top: 50% !important;
 }
