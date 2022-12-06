@@ -3,10 +3,12 @@ import Image from "next/image";
 import Naira from "react-naira";
 import { FiHeart, FiEye } from "react-icons/fi";
 import { ImStack } from "react-icons/im";
+import Link from "next/link";
 
-function BigCartImg({ img }) {
+function BigCartImg( { img , price, name, slug, desc}) {
   return (
-    <div className="space-y-3 group w-full hidden xl:block">
+    <Link href={`/product/${slug}`}>
+    <div className="space-y-3 group w-full hidden xl:block cursor-pointer">
       <div className="w-full relative overflow-hidden ">
         <Image
           src={img}
@@ -32,23 +34,16 @@ function BigCartImg({ img }) {
       </div>
       <div>
         <h3 className="w-[10rem] text-[#0066c0] hover:text-[#ff9300] text-sm mb-3">
-          {" "}
-          TECNO POP 2F (B1C) 16GB+1GB
+          {name}
         </h3>
         <div className="mb-3">
-          <Naira>39300.00</Naira>
+          <Naira>{price}</Naira>
         </div>
         <hr />
-        <p className="my-5 text-gray-500">
-          The maxi led 32 Inch HD LED TV comes with an amazing display and sound
-          that ensure maximum entertainment always for you, your friends and
-          family. Enjoy luminous clarity that eliminates blur and artifacts
-          which ensures fast motion picture quality when viewing your favorite
-          programmes. HD 1366 x 768pWith 1366 x 768 high definition resolution,
-          the images are so life-like, it feels like you’re really there.
-        </p>
+        <p className="my-5 text-gray-500">{desc}</p>
       </div>
     </div>
+    </Link> 
   );
 }
 

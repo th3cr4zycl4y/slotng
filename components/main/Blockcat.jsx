@@ -1,9 +1,9 @@
 import React from "react";
 import Cartitems from "./Cartitems";
 
-function Blockcat() {
+function Blockcat({ tphone }) {
   return (
-    <div className="border py-9 px-8 flex flex-col xl:flex-row overflow-scroll xl:overflow-hidden m-5  no-scrollbar ">
+    <div className="flex flex-col px-8 m-5 overflow-scroll border py-9 xl:flex-row xl:overflow-hidden no-scrollbar ">
       <div className="md:space-y-2 space-x-10 xl:w-[25%] pr-10 xl:space-x-0 flex xl:block overflow-auto xl:overflow-hidden no-scrollbar  ">
         <div className="cart-list">
           <h3 className="text-[#ff9300]">Tecno</h3>
@@ -32,7 +32,7 @@ function Blockcat() {
         </div>
       </div>
       <div className="xl:w-[75%]">
-        <Cartitems />
+        <Cartitems tphone={tphone} />
       </div>
     </div>
   );

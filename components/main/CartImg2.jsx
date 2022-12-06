@@ -3,11 +3,13 @@ import Image from "next/image";
 import Naira from "react-naira";
 import { FiHeart, FiEye } from "react-icons/fi";
 import { ImStack } from "react-icons/im";
+import Link from "next/link";
 
-function CartImg2({ img }) {
+function CartImg2({ img , price, name, slug}) {
   return (
-    <div className="space-y-3 group ">
-      <div className="w-fit relative overflow-hidden ">
+    <Link href={`/product/${slug}`}>
+    <div className="space-y-3 cursor-pointer group ">
+      <div className="relative overflow-hidden w-fit ">
         <Image
           src={img}
           alt="Banner Img"
@@ -15,7 +17,7 @@ function CartImg2({ img }) {
           height="270"
           className="rounded-sm"
         />
-        <div className=" group-hover:xl:flex flex-col absolute top-0 -right-10 group-hover:right-0   space-y-2 hidden transition ">
+        <div className="absolute top-0 flex-col hidden space-y-2 transition  group-hover:xl:flex -right-10 group-hover:right-0">
           <div className="cart-icon">
             <FiHeart />
           </div>
@@ -31,11 +33,12 @@ function CartImg2({ img }) {
         </div>
       </div>
       <h3 className="w-[10rem] text-[#0066c0] hover:text-[#ff9300] text-sm mb-10">
-        {" "}
-        TECNO POP 2F (B1C) 16GB+1GB
+        {name}
+        
       </h3>
-      <Naira>39300.00</Naira>
-    </div>
+      <Naira>{price}</Naira>
+      </div>
+      </Link>
   );
 }
 

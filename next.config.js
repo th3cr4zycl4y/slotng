@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["slot.ng"],
+    domains: ["cdn.sanity.io"],
   },
 };
 
