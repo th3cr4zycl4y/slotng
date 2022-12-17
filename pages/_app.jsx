@@ -1,11 +1,19 @@
 import "../styles/globals.css";
 import Layouts from "../components/Layouts";
+import NextNProgress from 'nextjs-progressbar';
+import { StateContext } from "../context/StateContext";
+import { Toaster } from "react-hot-toast";
+
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layouts>
-      <Component {...pageProps} />
-    </Layouts>
+    <StateContext>
+      <Layouts>
+      <NextNProgress />
+      <Toaster />
+        <Component {...pageProps} />
+      </Layouts>
+    </StateContext>
   );
 }
 

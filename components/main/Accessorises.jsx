@@ -2,7 +2,7 @@ import React from "react";
 import BigCartImg from "./BigCartImg";
 import CartImg2 from "./CartImg2";
 
-function Accessorises({elect}) {
+function Accessorises({accessorises}) {
   return (
     <div className="relative flex flex-col justify-center items-center">
       <div className="flex xl:absolute xl:space-x-10 right-0 text-sm -top-14 font-bold text-gray-400 ">
@@ -14,31 +14,31 @@ function Accessorises({elect}) {
           {/* First row */}
           <div className="flex mb-10">
             <div>
-              <CartImg2 img={elect[0].image.asset.url} price={elect[0].price} name={elect[0].name}  slug={elect[0].slug.current}/>
+              <CartImg2 product={accessorises[0]} img={accessorises[0].image.asset.url} price={accessorises[0].price} name={accessorises[0].name}  slug={accessorises[0].slug.current}/>
             </div>
             <div>
-            <CartImg2 img={elect[1].image.asset.url} price={elect[1].price} name={elect[1].name} slug={elect[1].slug.current} />
+            <CartImg2 product={accessorises[1]} img={accessorises[1].image.asset.url} price={accessorises[1].price} name={accessorises[1].name} slug={accessorises[1].slug.current} />
             </div>
             <div className="hidden md:block">
-            <CartImg2 img={elect[3].image.asset.url} price={elect[3].price} name={elect[3].name} slug={elect[3].slug.current} />
+            <CartImg2 product={accessorises[3]} img={accessorises[3].image.asset.url} price={accessorises[3].price} name={accessorises[3].name} slug={accessorises[3].slug.current} />
             </div>
           </div>
           {/* Second Row */}
           <div className="flex">
            <div>
-           <CartImg2 img={elect[4].image.asset.url} price={elect[4].price} name={elect[4].name} slug={elect[4].slug.current} />
+           <CartImg2 product={accessorises[4]} img={accessorises[4].image.asset.url} price={accessorises[4].price} name={accessorises[4].name} slug={accessorises[4].slug.current} />
             </div>
             <div>
-              <CartImg2 img={elect[5].image.asset.url} price={elect[5].price} name={elect[5].name} slug={elect[5].slug.current} />
+              <CartImg2 product={accessorises[5]} img={accessorises[5].image.asset.url} price={accessorises[5].price} name={accessorises[5].name} slug={accessorises[5].slug.current} />
             </div>
             <div className="hidden md:block">
-              <CartImg2 img={elect[6].image.asset.url} price={elect[6].price} name={elect[6].name} slug={elect[6].slug.current} />
+              <CartImg2 product={accessorises[6]} img={accessorises[6].image.asset.url} price={accessorises[6].price} name={accessorises[6].name} slug={accessorises[6].slug.current} />
             </div>
           </div>
         </div>
         {/* Big row */}
         <div className="w-[40%] ml-6 hidden xl:block">
-          <BigCartImg img={elect[2].image.asset.url} price={elect[2].price} name={elect[2].name} slug={elect[2].slug.current} desc={elect[2].description} />
+          <BigCartImg  img={accessorises[2].image.asset.url} price={accessorises[2].price} name={accessorises[2].name} slug={accessorises[2].slug.current} desc={accessorises[2].description} product={accessorises[2]} />
         </div>
       </div>
       <button className="bg-[#ff9300] text-white text-sm  py-3 w-[12rem] my-9 rounded-sm ">

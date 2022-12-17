@@ -24,6 +24,12 @@
   .service-item {
     @apply flex space-x-2  border-r-2 pr-1 xl:p-5  w-[35%] xl:w-fit m-3 xl:m-0;
   }
+
+  td,th{
+    @apply border-2 p-3 text-center;
+  }
+  
+
 }
 
 @layer utilities {
@@ -35,7 +41,12 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+  .cartbutton { 
+    @apply p-3 text-gray-400 border rounded-full bg-gray-100  border-gray-300 text-[16px] hover:bg-[#ff9300] hover:text-white
+
+  }
 }
+
 
 .slick-next,
 .slick-prev {
@@ -57,3 +68,5 @@
   height: 90px !important;
   top: 35% !important;
 }
+
+

@@ -19,13 +19,14 @@ const heroBanner = `*[_type == "banner"][0]{
 
 const techno = `*[_type == "technoPhone"][]{
   name,
+  _id,
   slug{
     current
   } ,
-  image { 
-  asset -> {
-  url
-}
+    image { 
+    asset -> {
+    url
+  }
 },
 price,
 inStock,
@@ -38,6 +39,7 @@ const electronics = `*[_type == "electronics"]{
    slug{
      current
    } ,
+   _id,
    image { 
    asset -> {
    url
@@ -51,19 +53,23 @@ const electronics = `*[_type == "electronics"]{
 
  const access = `*[_type == "accessorises"]{
   name,
+  _id,
    slug{
      current
    } ,
    image { 
    asset -> {
    url
+   
  }
+
  },
  price,
  inStock,
  description,
  details
  }`
+
 
 export default function Home({ hbanner, tphone, elect, acces }) {
   return (
@@ -107,7 +113,7 @@ export default function Home({ hbanner, tphone, elect, acces }) {
           Accessorises Product
         </h1>
       </div>
-      <Accessorises elect={acces} />
+      <Accessorises accessorises={acces} />
       <div className="flex flex-col px-5 md:mt-10 md:flex-row md:space-x-7 md:px-0">
         <SmallBanner img="/img/HOMES-01.webp" />
         <div className="hidden xl:flex w-fit space-x-7">

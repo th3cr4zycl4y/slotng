@@ -7,7 +7,6 @@ function NewsLetter() {
         </h1>
         <div className="space-y-2 text-center">
           <p className="text-gray-400">
-            {" "}
             Get the latest and greatest offers from us by subscribing to our
             newsletter
           </p>

@@ -1,15 +1,16 @@
 import React from "react";
 import Image from "next/image";
-import Naira from "react-naira";
 import { FiHeart, FiEye } from "react-icons/fi";
 import { ImStack } from "react-icons/im";
 import Link from "next/link";
+import { useStateContext } from "../../context/StateContext";
 
-function BigCartImg( { img , price, name, slug, desc}) {
+function BigCartImg( { img , price, name, slug, desc, product}) {
+  const {qty, addItem, formatPrice , cartItem} = useStateContext()
   return (
     <Link href={`/product/${slug}`}>
-    <div className="space-y-3 group w-full hidden xl:block cursor-pointer">
-      <div className="w-full relative overflow-hidden ">
+    <div className="hidden w-full space-y-3 cursor-pointer group xl:block">
+      <div className="relative w-full overflow-hidden ">
         <Image
           src={img}
           alt="Banner Img"
@@ -17,7 +18,7 @@ function BigCartImg( { img , price, name, slug, desc}) {
           height="500"
           className="rounded-sm"
         />
-        <div className=" group-hover:xl:flex flex-col absolute top-0 -right-10 group-hover:right-0   space-y-2 hidden transition ">
+        <div className="absolute top-0 flex-col hidden space-y-2 transition group-hover:xl:flex -right-10 group-hover:right-0">
           <div className="cart-icon">
             <FiHeart />
           </div>
@@ -28,8 +29,22 @@ function BigCartImg( { img , price, name, slug, desc}) {
             <ImStack />
           </div>
         </div>
-        <div className=" bg-[#ff9300] z-20  group-hover:flex transition items-center justify-center p-2  text-white absolute bottom-2 w-full hidden">
-          <p>Add to Cart</p>
+        <div  onClick={() => addItem(product, qty)}>
+            {
+             <div>   
+             { 
+              cartItem.includes(product) ?
+              (
+                <Link href='/cart' > 
+                  <button className='bg-[#ff9300] z-20  group-hover:flex transition items-center justify-center p-2  text-white absolute bottom-2 w-full hidden'>View Cart</button>    
+                </Link>         
+             ) : (
+               <div onClick={() => addItem(product, qty)  }>
+                 <button className='bg-[#ff9300] z-20  group-hover:flex transition items-center justify-center p-2  text-white absolute bottom-2 w-full hidden'>Add to Cart</button>     
+               </div>
+             )}
+           </div>  
+            }      
         </div>
       </div>
       <div>
@@ -37,7 +52,7 @@ function BigCartImg( { img , price, name, slug, desc}) {
           {name}
         </h3>
         <div className="mb-3">
-          <Naira>{price}</Naira>
+          <p>{formatPrice(price)}</p>
         </div>
         <hr />
         <p className="my-5 text-gray-500">{desc}</p>

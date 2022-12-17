@@ -1,15 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, {useContext} from "react";
+import { useStateContext } from "../../context/StateContext";
 import { FiMapPin } from "react-icons/fi";
 import { BsHandbag } from "react-icons/bs";
 import { TbHeadset } from "react-icons/tb";
 import { FaBars } from "react-icons/fa";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import Cart from "../Cart";
+
+
 
 function Header() {
+  const { totalQuantities,showCart, setShowCart} = useStateContext()
+
   return (
-    <header className="bg-[#D72423] h-[12rem]  xl:h-[12.7rem] w-full text-white overflow-hidden     ">
+    <header className="bg-[#D72423] h-[12rem]  xl:h-[12.7rem] w-full text-white overflow-hidden"  >
       <div className="max-w-7xl mx-auto ">
         {/* top container */}
         <div className="flex xl:justify-between align-center justify-center ">
@@ -44,7 +50,8 @@ function Header() {
         <div>
           {/* logo image */}
           <div className="flex xl:space-x-10 py-[15px] mx-5 xl:ml-0 items-center justify-between">
-            <div className="py-[15px] h-[10px] w-[90px] md:h-[35px] md:w-[150px]  relative">
+            <Link href="/">
+            <div className="py-[15px] h-[10px] w-[90px] md:h-[35px] md:w-[150px]  relative cursor-pointer">
               <Image
                 src="/img/logo_white.webp"
                 alt="logo image"
@@ -52,6 +59,7 @@ function Header() {
                 object-fit="contain"
               />
             </div>
+            </Link>
             <div className="flex items-center justify-around w-fit xl:w-full ">
               <div className="xl:flex hidden ">
                 <TbHeadset className="w-12 h-12 text-[#ff9300]" />
@@ -64,10 +72,10 @@ function Header() {
                 </div>
               </div>
               <form className="relative">
-                <div className="md:h-[50px] h-[30px] bg-white rounded-3xl  flex items-center absolute -right-10  md:right-10 md:top-8 top-12 xl:static">
+                <div className="md:h-[50px] h-[40px]  bg-white rounded-3xl  flex items-center absolute -right-10  md:right-10 md:top-8 top-12 xl:static">
                   <input
                     type="text"
-                    className="placeholder:text-gray-300 pr-16 pl-10 w-[13rem] md:w-[25rem] rounded-3xl placeholder:text-[12px] xl:placeholder:text-[16px] "
+                    className="placeholder:text-gray-300 pr-16 pl-10 w-[15rem] md:w-[25rem] rounded-3xl text-gray-400 placeholder:text-[12px] xl:placeholder:text-[16px] "
                     placeholder="Search entire store here..."
                   />
                   <button className="bg-[#ff9300] h-full rounded-r-3xl  px-[2rem] xl:px-[4rem]">
@@ -77,10 +85,16 @@ function Header() {
               </form>
               <div className="relative -top-3 right-0">
                 <div className="bg-[#ff9300] rounded-full flex justify-center items-center text-sm relative -right-7 -bottom-2 h-5 w-5">
-                  0
+                  {totalQuantities}
                 </div>
+                <div onClick={() => setShowCart(prev => !prev)}>
                 <BsHandbag className="w-8 h-8 " />
+                </div>
               </div>
+              {
+                showCart && <Cart show={showCart} hide={setShowCart}/>
+              }
+              
             </div>
           </div>
         </div>

@@ -1,7 +1,13 @@
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import React from "react";
 import Footer from "./footer/Footer";
-import Header from "./header/Header";
+
+  const Header = dynamic(() => import('./header/Header'), {
+    ssr: false,
+  })
+
+  
 
 function Layouts({ children }) {
   return (
