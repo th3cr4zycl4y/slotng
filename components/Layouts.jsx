@@ -17,7 +17,7 @@ function Layouts({ children }) {
           Slot.ng - Phones, Tablets, Laptops, Electronics and Accessories
         </title>
         <meta name="description" content="SlotNg Clone With Nextjs And TailWindCss By Olabode Olaleye" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="https://slot.ng/media/favicon/stores/1/S_1_.png" />
       </Head>
       <header>
         <Header />
