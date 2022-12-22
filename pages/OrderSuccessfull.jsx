@@ -2,6 +2,8 @@ import React from 'react'
 import Link  from 'next/link';
 import { useStateContext } from '../context/StateContext';
 import { useEffect } from 'react';
+import Head from "next/head";
+
 
 function OrderSucc() {
   const { setTotalQuantities,setCartItem, setTotalPrice } = useStateContext()
@@ -16,6 +18,9 @@ function OrderSucc() {
 
   return (
     <div className='flex items-center justify-center flex-col text-center text-2xl  md:text-3xl font-bold h-[50vh] '>
+      <Head>
+        <title>Order Successful</title>
+      </Head>
       <h1>Congrats Order successfully Placed</h1>
       <h2>Your Orders are on there way to your door step </h2>
       <Link href='/'>

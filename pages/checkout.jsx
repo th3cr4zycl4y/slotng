@@ -5,6 +5,8 @@ import CheckoutForm from "../components/CheckOutForm";
 import { useStateContext } from '../context/StateContext';
 import CheckOutCart from "../components/CheckOutCart";
 import dynamic from "next/dynamic";
+import Head from "next/head";
+
 
 
 
@@ -38,6 +40,9 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
   return (
     <div>
+      <Head>
+        <title>CheckOut</title>
+      </Head>
         <div className="my-10 mx-5">
             <h1 className="text-3xl font-bold">Check Out Page</h1>
         </div>
