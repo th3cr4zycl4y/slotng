@@ -96,10 +96,7 @@ function CartItems() {
           </div>
         <div className='border-b border-gray-700'></div>
           <p className='flex items-center justify-between text-lg font-bold'>APPLY DISCOUNT CODE <MdOutlineKeyboardArrowDown className="text-3xl"/> </p>
-        
-        <Link href='/checkout' >
-            <button className='text-center w-full text-white rounded-lg bg-[#ff9300] p-3 '>Proceed To Checkout</button>
-        </Link>
+      
       </div>
 
       

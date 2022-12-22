@@ -8,10 +8,10 @@ function Cart({ hide}) {
   const { totalQuantities,cartItem, totalPrice, formatPrice, handleRemoveItem } = useStateContext()
   
   return (
-    <div className='h-fit absolute bg-white w-full md:w-fit right-0  z-30 top-24 md:right-20 rounded-lg border-t-4 border-orange-400'>
-    <button className='text-orange-400  text-3xl m-3 absolute right-0 ' onClick={() => hide(prev => !prev)}><FaTimes /> </button>
+    <div className='h-fit absolute bg-white w-full md:w-fit right-0  z-30 top-24 md:right-20 rounded-lg border-t-4 border-[#ff9300]'>
+    <button className='text-[#ff9300]   text-3xl m-3 absolute right-0 ' onClick={() => hide(prev => !prev)}><FaTimes /> </button>
     <div>
-      <p className='text-gray-600 font-bold m-3'>My Cart ( <span className='text-orange-400 text-sm '> {totalQuantities} Item in Cart</span> )</p>
+      <p className='text-gray-600 font-bold m-3'>My Cart ( <span className='text-[#ff9300]  text-sm '> {totalQuantities} Item in Cart</span> )</p>
     </div>
         {
           cartItem.map((item, index) => ( 
@@ -21,12 +21,12 @@ function Cart({ hide}) {
                 <Image 
                   src={item.image.asset.url}
                   alt={item.name} 
-                  width={90} height={90} 
+                  width={100} height={80} 
                   objectFit='cover' />
                 <div className='m-3 flex  items-center justify-between w-full '>
                   <div>
                     <p className='text-black text-sm'>{item.name}</p>
-                    <p className='text-orange-400 mt-3'>&#8358;{item.price}</p>
+                    <p className='text-[#ff9300]  mt-3'>&#8358;{item.price}</p>
                     <p className='text-gray-400 mt-3 text-sm'>QTY: {item.quantity}</p>
                   </div>
                   <div className='text-black flex flex-col space-y-3 mt-5 text-xl'>
@@ -44,13 +44,15 @@ function Cart({ hide}) {
         }
         <div className='flex justify-between items-center m-3 font-bold '>
           <p className='text-black  '>Cart SubTotal: </p>
-          <span className='text-orange-400 '>{formatPrice(totalPrice)}</span>
+          <span className='text-[#ff9300]  '>{formatPrice(totalPrice)}</span>
         </div>
 
         <div className='m-3 space-y-3 text-center'>
-          <p className='bg-[#ff9300] text-white py-3 px-10 rounded-[5px]'>Proceed To CheckOut</p>
+          { cartItem.length ? <Link href='/checkout'>
+           <button className='bg-[#ff9300] text-white py-3 px-10 rounded-[5px] w-full'>Proceed To CheckOut</button>
+          </Link> : <button className='bg-gray-400 text-white py-3 px-10 rounded-[5px] w-full'>Cart Empty</button>}
           <Link href="/cart" >
-          <p className='bg-gray-300 hover:bg-[#ff9300] hover:text-white text-black py-3 px-10 rounded-[5px]'>View Cart</p>
+            <p className='bg-gray-300 hover:bg-[#ff9300] hover:text-white text-black py-3 px-10 rounded-[5px]'>View Cart</p>
           </Link>
         </div>
     </div>

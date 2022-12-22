@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <StateContext>
       <Layouts>
-      <NextNProgress />
+      <NextNProgress color="#ff9300" />
       <Toaster />
         <Component {...pageProps} />
       </Layouts>

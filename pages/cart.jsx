@@ -16,7 +16,7 @@ function Cart() {
       </Head>
       <h1 className='text-4xl font-bold'>Shopping Cart</h1>
       
-    
+
     { cartItem.length ? <CartItems /> : <div className='h-[30vh] w-full flex items-center justify-center flex-col'>
         <p className='text-3xl '>Cart is Empty</p>
         <Link href='/'>
