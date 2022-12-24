@@ -2,7 +2,7 @@ import React from "react";
 import {
   PaymentElement,
   useStripe,
-  useElements
+  useElements,
 } from "@stripe/react-stripe-js";
 
 export default function CheckoutForm() {
@@ -55,7 +55,7 @@ export default function CheckoutForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "http://localhost:3000/OrderSuccessfull",
+        return_url: "https://slotng.vercel.app/OrderSuccessfull",
       },
     });
 
@@ -73,15 +73,27 @@ export default function CheckoutForm() {
   };
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit} className="lg:w-[50%]  md:mx-auto mx-3 mt-10">
+    <form
+      id="payment-form"
+      onSubmit={handleSubmit}
+      className="lg:w-[50%]  md:mx-auto mx-3 mt-10"
+    >
       <PaymentElement id="payment-element" options={paymentElementOptions} />
-      <button disabled={isLoading || !stripe || !elements} id="submit" className="w-full bg-[#ff9300] p-5  font-bold text-white mt-5 rounded-xl">
+      <button
+        disabled={isLoading || !stripe || !elements}
+        id="submit"
+        className="w-full bg-[#ff9300] p-5  font-bold text-white mt-5 rounded-xl"
+      >
         <span id="button-text">
           {isLoading ? <div className="">Loading...</div> : "Pay now"}
         </span>
       </button>
       {/* Show any error or success messages */}
-      {message && <div id="payment-message" className="mt-5 text-red-600">{message}</div>}
+      {message && (
+        <div id="payment-message" className="mt-5 text-red-600">
+          {message}
+        </div>
+      )}
     </form>
   );
 }
